@@ -15,7 +15,7 @@ export default async function Home() {
             href={`/info/${pokemon.name}`}
             key={pokemon.name}
           >
-            {pokemons.name}
+            {pokemon.name}
           </Link>
         ))}
         Pokemon name
