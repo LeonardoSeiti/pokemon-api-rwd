@@ -6,7 +6,7 @@ export async function generateStaticParams() {
   return pokemons.map((pokemon: any) => ({ slug: pokemon.name }));
 }
 export default async function InfoDatails({params,}: {params: { slug: string };}) {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.slug}`);
   const pokemon = await response.json();
   return (
     <div className="flex items-center">
@@ -16,7 +16,7 @@ export default async function InfoDatails({params,}: {params: { slug: string };}
         height={80}
         alt={pokemon.name}
       />
-      <h2 className="text-2xl mb-4 font-bold"></h2>
+      <h2 className="text-2xl mb-4 font-bold"> {pokemon.name}</h2>
     </div>
   );
 }
