@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 }
 export default async function InfoDatails({params,}: {params: { slug: string };}) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon`);
-  const { results: pokemons } = await response.json();
+  const pokemon = await response.json();
   return (
     <div className="flex items-center">
       <Image
